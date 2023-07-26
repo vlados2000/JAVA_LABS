@@ -1,8 +1,12 @@
 package com.qa.model;
 
-public abstract class Animal {
+public abstract class Animal implements Comparable<Animal> {
     private String name;
     private int age;
+
+    public int compareTo(Animal ref) {
+        return this.age - ref.getAge();
+    }
 
     public Animal(String name, int age) {
         this.name = name;

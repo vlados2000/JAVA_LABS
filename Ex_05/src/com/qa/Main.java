@@ -1,5 +1,7 @@
 package com.qa;
 import  com.qa.model.*;
+import com.sun.source.tree.Tree;
+
 import java.util.*;
 
 public class Main {
@@ -15,7 +17,7 @@ public class Main {
         Rabbit r2 = new Rabbit("Cottontail", 2);
         Rabbit r3 = new Rabbit("Vladimir", 3);
 
-
+        // Task 2
         ArrayList<Animal> myBoys = new ArrayList<>();
         myBoys.add(c1);
         myBoys.add(c2);
@@ -63,11 +65,56 @@ public class Main {
 
         System.out.println("Printing hashmap2 ...");
         for (Animal key : animalMap2.keySet()) {
-            System.out.println("Animal:  " + key + " .. and all you should know about him is that " +
-                    animalMap2.get(key));
+            System.out.println("Animal:  " + key
+                    + " .. and all you should know about him is that "
+                    + animalMap2.get(key));
         }
 
+        System.out.println();
+
         // Task 4
+        HashSet<Animal> hSet = new HashSet<>();
+        hSet.addAll(myBoys);
+        System.out.println(hSet);
+
+        hSet.add(c1);
+        hSet.add(c2);
+        hSet.add(c3);
+
+        Iterator<Animal> itterator = hSet.iterator();
+        while (itterator.hasNext()) {
+            System.out.println(itterator.next());
+        }
+
+        // Ex 5 - additional
+
+        // Task 1
+        // Looking for Boris
+        // look in arrayList
+        for (int i = 0; i < myBoys.size(); i++) {
+            if (myBoys.get(i).getName().equals("Boris")) {
+                System.out.println("\nBoris was found at entry " + myBoys.get(i));
+            }
+        }
+
+        // look in HashMap
+        System.out.println("\nBoris was found at entry " + animalMap.get("Boris"));
+
+        // Task 2
+        System.out.println("\nBefore sort arrayList:  " + myBoys);
+        Collections.sort(myBoys);
+        System.out.println("\nAfter sort arrayList " + myBoys);
+
+        // Task 3
+        TreeMap<String, Animal> treeMap = new TreeMap<>();
+        treeMap.putAll(animalMap);
+
+        System.out.println("TreeMap");
+        for (String key : treeMap.keySet()){
+            System.out.println("Key: " + key + " Value: " +
+                    treeMap.get(key));
+        }
+
 
 
     }
